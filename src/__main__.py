@@ -12,7 +12,7 @@ if __name__ == '__main__':
     url = sys.argv[1]
 
     try:
-        config = ScraperConfig(path = './src/config/scraper_config.json')
+        config = ScraperConfig(path = './config/scraper_config.json')
         
         parser = Scraper(url = url, config=config)
         parser.parse_page()

@@ -89,7 +89,7 @@ class Scraper:
         header = ''
         if header_obj is not None:
             header = header_obj.get_text()
-        else:
+        elif self.__soup_obj.head:
             header_obj = self.__soup_obj.head.find('meta', attrs={'name': 'title'})
             if header_obj:
                 header = header_obj.attrs['content']
@@ -102,8 +102,11 @@ class Scraper:
         tag_processing_settings = self.__config.tag_processing_settings[self.__d_key]
         tags_for_search = tag_processing_settings['tags_for_search']
         class_attrs_for_search = '|'.join(tag_processing_settings['class_attrs_for_search'])
-        content_pattern = re.compile(class_attrs_for_search)
-        content = self.__soup_obj.body.findAll(attrs={"class": content_pattern})
+        if class_attrs_for_search != '':
+            content_pattern = re.compile(class_attrs_for_search)
+            content = self.__soup_obj.body.findAll(attrs={"class": content_pattern})
+        else:
+            content = [self.__soup_obj.body]
         p_objects = []
         already_used = []
 

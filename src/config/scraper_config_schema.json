@@ -1,0 +1,102 @@
+{
+	"$id": "scraper_config.scheme.json",
+    "type": "object",
+	"properties": {
+		"target_directory": { 
+			"type": "string",
+            "description": "The target directory for the generated pages",
+			"examples": [
+				"./pages"
+			]
+		},
+		"string_width": {
+			"type": "integer",
+            "description": "The string width for the generated pages",
+			"examples": [
+				80
+			]
+		},
+		"href_template": {
+			"type": "string",
+			"description": "The href template for the generated pages",
+			"examples": [
+				"%url_text% [%url_href%]"
+			]
+		},
+		"header_template": {
+			"type": "string",
+			"description": "The header template for the generated pages",
+			"examples": [
+				"%header%\n\n"
+			]
+		},
+		"article_template": {
+			"type": "string",
+			"description": "The article template for the generated pages",
+			"examples": [
+				"%article%\n"
+			]
+		},
+		"paragraph_template": {
+			"type": "string",
+			"description": "The paragraph template for the generated pages",
+			"examples": [
+				"%paragraph%\n\n"
+			]
+		},
+		"tag_processing_setup": {
+			"type": "object",
+			"pattern_properties": {
+				"base_url": {
+					"type": "object",
+                    "description": "The base url for the generated pages",
+					"properties": {
+						"tags_for_delete": {
+							"type": "array",
+                            "description": "The tags for delete",
+							"items":{
+								"type": "string",
+								"examples": [
+									"script",
+                                    "style"
+								]
+							}
+						},
+						"class_attrs_for_delete": {
+							"type": "array",
+                            "description": "The class attrs for delete",
+							"items":{
+								"type": "string",
+								"examples": [
+									"banner",
+                                    "comment"
+								]
+							}
+						},
+						"tags_for_search": {
+							"type": "array",
+                            "description": "The tags for search",
+							"items":{
+								"type": "string",
+								"examples": [
+									"p",
+                                    "h2"
+								]
+							}
+						},
+						"class_attrs_for_search": {
+							"type": "array",
+							"description": "The class attrs for search",
+							"items":{
+								"type": "string",
+								"examples": [
+									"content"
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -21,6 +21,24 @@
             "class_attrs_for_search": [
                 "content","context", "article", "text"
             ]
+        },
+
+        "example.com": {
+            "tags_for_delete": [],
+            "class_attrs_for_delete": [],
+            "tags_for_search": ["h2", "p", "font"],
+            "class_attrs_for_search": []
+        },
+
+        "habr.com": {
+            "tags_for_delete": [],
+            "class_attrs_for_delete": [
+                "tm-article-presenter__meta"
+            ],
+            "tags_for_search": ["p"],
+            "class_attrs_for_search": [
+                "tm-article-body"
+            ]
         }
     }
 }
