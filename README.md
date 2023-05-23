@@ -33,7 +33,7 @@ pip install -r requirements.txt
 Executable file \_\_main\_\_.py
 
 Пример запуска:
-```bash
+```console
 python __main__.py https://example.com/news/page.html
 ```
 
@@ -57,111 +57,8 @@ python __main__.py https://example.com/news/page.html
 
 В конструкторе класса ScraperConfig мы принимаем строку path, содержащую путь к файлу конфигурации. Если путь задан, то мы пытаемся открыть файл и загрузить настройки из него с помощью модуля json. Если загрузка прошла успешно, то мы устанавливаем значения настроек из конфигурации. Если произошла ошибка при загрузке конфигурации, то мы выводим соответствующее сообщение и используем настройки по умолчанию.
 
-- **scraper_config.scheme.json**
-```json
-{
-	"$id": "scraper_config.scheme.json",
-    "type": "object",
-	"properties": {
-		"target_directory": { 
-			"type": "string",
-            "description": "Целевой каталог",
-			"examples": [
-				"./pages"
-			]
-		},
-		"string_width": {
-			"type": "integer",
-            "description": "Ширина строки",
-			"examples": [
-				80
-			]
-		},
-		"href_template": {
-			"type": "string",
-			"description": "Шаблон форматирования ссылок",
-			"examples": [
-				"%url_text% [%url_href%]"
-			]
-		},
-		"header_template": {
-			"type": "string",
-			"description": "Шаблон форматирования заголовка",
-			"examples": [
-				"%header%\n\n"
-			]
-		},
-		"article_template": {
-			"type": "string",
-			"description": "Шаблон основного текста статьи",
-			"examples": [
-				"%article%\n"
-			]
-		},
-		"paragraph_template": {
-			"type": "string",
-			"description": "Шаблон абзаца",
-			"examples": [
-				"%paragraph%\n\n"
-			]
-		},
-		"tag_processing_setup": {
-			"type": "object",
-			"pattern_properties": {
-				"base_url": {
-					"type": "object",
-                    "description": "Базовый URL для поиска тегов",
-					"properties": {
-						"tags_for_delete": {
-							"type": "array",
-                            "description": "Теги для удаления",
-							"items":{
-								"type": "string",
-								"examples": [
-									"script",
-                                    "style"
-								]
-							}
-						},
-						"class_attrs_for_delete": {
-							"type": "array",
-                            "description": "Атрибуты класса для удаления",
-							"items":{
-								"type": "string",
-								"examples": [
-									"banner",
-                                    "comment"
-								]
-							}
-						},
-						"tags_for_search": {
-							"type": "array",
-                            "description": "Теги для поиска",
-							"items":{
-								"type": "string",
-								"examples": [
-									"p",
-                                    "h2"
-								]
-							}
-						},
-						"class_attrs_for_search": {
-							"type": "array",
-							"description": "Атрибуты класса для поиска",
-							"items":{
-								"type": "string",
-								"examples": [
-									"content"
-								]
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-```
+- [**scraper_config.json**](https://github.com/foxiam/Scraper/blob/master/src/config/scraper_config.json)
+- [**scraper_config.scheme.json**](https://github.com/foxiam/Scraper/blob/master/src/config/scraper_config_schema.json)
 
 ##### [Back to Contents](#contents)
 
@@ -191,5 +88,11 @@ saver.write(text)
 ##### [Back to Contents](#contents)
 
 ### Work example
+
+- [lenta.ru](https://lenta.ru/news/2023/05/23/futurephone/) -> [Formatted text](https://github.com/foxiam/Scraper/blob/master/src/pages/lenta.ru/news/2023/05/23/futurephone.txt)
+- [habr.com](https://habr.com/ru/news/737080/) -> [Formatted text](https://github.com/foxiam/Scraper/blob/master/src/pages/habr.com/ru/news/737080.txt)
+- [habr.com](https://habr.com/ru/companies/smartengines/news/737002/) -> [Formatted text](https://github.com/foxiam/Scraper/blob/master/src/pages/habr.com/ru/companies/smartengines/news/737002.txt)
+- [www.gazeta.ru](https://www.gazeta.ru/tech/news/2023/05/23/20505092.shtml) -> [Formatted text](https://github.com/foxiam/Scraper/blob/master/src/pages/www.gazeta.ru/tech/news/2023/05/23/20505092.txt)
+- [example.com](https://example.com/news/page.html)-> [Formatted text](https://github.com/foxiam/Scraper/blob/master/src/pages/example.com/news/page.txt)
 
 ### Further development
