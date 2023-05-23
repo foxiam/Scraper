@@ -96,3 +96,6 @@ saver.write(text)
 - [example.com](https://example.com/news/page.html)-> [Formatted text](https://github.com/foxiam/Scraper/blob/master/src/pages/example.com/news/page.txt)
 
 ### Further development
+- Добавить возможность сохранения файлов в разных форматах, например markdown или html.
+- Добавить поддержку изображений, таблиц, блоков с кодом и т. д.
+- Встроить языковую модель, для более точной фильтрации текста и упрощения конфигурации.

@@ -14,9 +14,9 @@ if __name__ == '__main__':
     try:
         config = ScraperConfig(path = './config/scraper_config.json')
         
-        parser = Scraper(url = url, config=config)
-        parser.parse_page()
-        text = parser.get_formatted_text()
+        scraper = Scraper(url = url, config=config)
+        scraper.parse_page()
+        text = scraper.get_formatted_text()
 
         saver = FileWriter(url, config.target_directory)
         saver.write(text)
