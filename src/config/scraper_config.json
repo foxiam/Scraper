@@ -1,0 +1,26 @@
+{
+    "target_directory": "./pages",
+    "string_width": 80,
+    "href_template": "%url_text% [%url_href%]",
+    "header_template": "%header%\n\n",
+    "article_template": "%article%\n",
+    "paragraph_template": "%paragraph%\n\n",
+
+    "tag_processing_setup": {
+        "default": {
+            "tags_for_delete": [
+                "script", "noscript", "style", "noindex",
+                "form", "img", "figcaption"
+            ],
+            "class_attrs_for_delete": [
+                "social", "reg", "auth", "footer",
+                "banner", "mobile", "comment", "preview",
+                "inject", "incut", "infoblock"
+            ],
+            "tags_for_search": ["h2", "p"],
+            "class_attrs_for_search": [
+                "content","context", "article", "text"
+            ]
+        }
+    }
+}
